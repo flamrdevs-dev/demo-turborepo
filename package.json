@@ -1,0 +1,13 @@
+{
+  "name": "demo-turborepo",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "preview": "turbo preview"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "turbo": "^1.10.2",
+    "typescript": "^5.1.3"
+  }
+}

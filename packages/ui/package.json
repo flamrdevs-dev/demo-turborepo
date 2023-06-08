@@ -1,0 +1,7 @@
+{
+  "name": "@demo-turborepo/ui",
+  "dependencies": {
+    "solid-js": "^1.7.6"
+  },
+  "devDependencies": {}
+}

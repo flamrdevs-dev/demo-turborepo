@@ -1,0 +1,16 @@
+{
+  "name": "@demo-turborepo/site",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@demo-turborepo/ui": "workspace:*",
+    "solid-js": "^1.7.6"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}
