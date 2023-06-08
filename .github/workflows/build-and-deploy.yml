@@ -1,0 +1,72 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  init:
+    name: Init
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8.5.1
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install
+        run:
+          - pnpm install
+          - pnpm add -D -w vercel
+
+  build-site:
+    name: Build apps/site
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    needs: init
+
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8.5.1
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install
+        run:
+          - pnpm install
+          - pnpm add -D -w vercel
+
+      - name: Build
+        run:
+          - pnpm build --filter @demo-turborepo/site
+          - pnpm --filter @demo-turborepo/site exec vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          - pnpm --filter @demo-turborepo/site exec vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
