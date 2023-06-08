@@ -33,3 +33,6 @@ jobs:
 
       - name: Workspace build
         run: pnpm build
+
+      - name: ~/site build
+        run: pnpm build --filter @demo-turborepo/site
