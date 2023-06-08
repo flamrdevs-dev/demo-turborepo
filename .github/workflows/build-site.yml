@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  run:
-    name: Run
+  build:
+    name: Build for ~/site
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
