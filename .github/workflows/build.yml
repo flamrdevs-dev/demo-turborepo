@@ -28,9 +28,8 @@ jobs:
           node-version: 20
           cache: "pnpm"
 
-      - name: Installations
-        run:
-          - pnpm install
+      - name: Workspace install
+        run: pnpm install
 
-      - name: Builds
+      - name: Workspace build
         run: pnpm build
