@@ -31,6 +31,9 @@ jobs:
       - name: Install
         run: pnpm install
 
+      - name: Build
+        run: pnpm build
+
   build-site:
     name: Build apps/site
     timeout-minutes: 15
@@ -66,3 +69,4 @@ jobs:
           pnpm build --filter @demo-turborepo/site
           pnpm --filter @demo-turborepo/site exec vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           pnpm --filter @demo-turborepo/site exec vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+          pnpm --filter @demo-turborepo/site exec vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
