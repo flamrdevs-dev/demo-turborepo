@@ -33,5 +33,5 @@ jobs:
       - name: Installs
         run: pnpm add -g vercel && pnpm install
 
-      - name: Build and Deploy for ~/site
-        run: cd apps/site && vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} && vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} && vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy for ~/site
+        run: cd apps/site && vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} && vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
