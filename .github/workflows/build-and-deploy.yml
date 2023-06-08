@@ -29,9 +29,9 @@ jobs:
           cache: "pnpm"
 
       - name: Install
-        run:
-          - pnpm install
-          - pnpm add -D -w vercel
+        run: |
+          pnpm install
+          pnpm add -D -w vercel
 
   build-site:
     name: Build apps/site
@@ -61,12 +61,12 @@ jobs:
           cache: "pnpm"
 
       - name: Install
-        run:
-          - pnpm install
-          - pnpm add -D -w vercel
+        run: |
+          pnpm install
+          pnpm add -D -w vercel
 
       - name: Build
-        run:
-          - pnpm build --filter @demo-turborepo/site
-          - pnpm --filter @demo-turborepo/site exec vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-          - pnpm --filter @demo-turborepo/site exec vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          pnpm build --filter @demo-turborepo/site
+          pnpm --filter @demo-turborepo/site exec vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          pnpm --filter @demo-turborepo/site exec vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
