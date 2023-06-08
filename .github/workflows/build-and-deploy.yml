@@ -29,9 +29,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install
-        run: |
-          pnpm install
-          pnpm add -D -w vercel
+        run: pnpm install
 
   build-site:
     name: Build apps/site
@@ -61,9 +59,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install
-        run: |
-          pnpm install
-          pnpm add -D -w vercel
+        run: pnpm install
 
       - name: Build
         run: |
