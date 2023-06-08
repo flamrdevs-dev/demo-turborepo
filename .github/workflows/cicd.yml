@@ -2,7 +2,7 @@ name: CICD
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_SITE_PROJECT_ID: ${{ secrets.VERCEL_SITE_PROJECT_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_SITE_PROJECT_ID }}
 
 on:
   push:
